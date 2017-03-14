@@ -1,0 +1,37 @@
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+             http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+             version="2.1">
+
+	<!-- unidade de persistencia com o nome financas -->
+	<persistence-unit name="livraria">
+	    <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+	    
+	    <class>br.com.biblioteca.model.Nivel_Acesso</class>
+	    <class>br.com.biblioteca.model.Bibliotecario</class>
+	    <class>br.com.biblioteca.model.Contato</class>
+	    <class>br.com.biblioteca.model.Endereco</class>
+	    <class>br.com.biblioteca.model.Cliente</class>
+	    <class>br.com.biblioteca.model.Categoria</class>
+	    <class>br.com.biblioteca.model.Editora</class>
+	    <class>br.com.biblioteca.model.Livro</class>
+	    <class>br.com.biblioteca.model.Emprestimo</class>
+	
+	    <properties>    
+	        <!-- Configurações específicas do Hibernate -->
+	        <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
+	        <property name="hibernate.hbm2ddl.auto" value="update" />
+	        <property name="hibernate.show_sql" value="true" />
+	        <property name="hibernate.format_sql" value="true" />
+	        <property name="hibernate.generate_statistics" value="true"/>
+	        
+	        
+	        <!-- Propriedades JDBC -->
+	        <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+	        <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/livraria" />
+	        <property name="javax.persistence.jdbc.user" value="root" />
+	        <property name="javax.persistence.jdbc.password" value="123" />
+	    </properties>
+	</persistence-unit>
+</persistence>

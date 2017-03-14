@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:body>
+
+	<h:head>
+		<h:outputStylesheet library="css" name="login.css" />
+	</h:head>
+
+	<h:form prependId="false">
+		<h:panelGrid columns="1" styleClass="formulario_login">
+
+			<p:graphicImage library="images" name="login-image.jpg" styleClass="icone" />
+
+			<h:panelGrid columns="2">
+				<p:outputLabel value="Login: " id="lblLogin" for="txtLogin" />
+				<p:inputText value="Admin" id="txtLogin" styleClass="campoTexto" />
+			</h:panelGrid>
+
+			<h:panelGrid columns="2">
+				<p:outputLabel value="Senha: " id="lblSenha" for="txtSenha" />
+				<p:inputText value="123" id="txtSenha" styleClass="campoTexto" />
+			</h:panelGrid>
+
+			<p:commandButton value="Logar" styleClass="botao"/>
+			<p:commandButton value="Limpar" styleClass="botao" />
+			<p:commandButton value="Recuperar Senha" styleClass="botao" />
+		</h:panelGrid>
+	</h:form>
+</h:body>
+</html>
