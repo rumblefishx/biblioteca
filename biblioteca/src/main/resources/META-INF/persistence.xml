@@ -9,6 +9,7 @@
 	    <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 	    
 	    <class>br.com.biblioteca.model.Nivel_Acesso</class>
+	    <class>br.com.biblioteca.model.Usuario</class>
 	    <class>br.com.biblioteca.model.Bibliotecario</class>
 	    <class>br.com.biblioteca.model.Contato</class>
 	    <class>br.com.biblioteca.model.Endereco</class>

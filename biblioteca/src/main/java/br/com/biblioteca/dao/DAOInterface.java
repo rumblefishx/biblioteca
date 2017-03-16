@@ -7,5 +7,5 @@ public interface DAOInterface<T> {
 	public void inserir(T valor);
 	public void remover(T valor);
 	public List<T> listar();
-	public void buscar(int id);
+	public T buscar(int id);
 }
