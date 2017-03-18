@@ -1,2 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pageflow:Pageflow xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14894539101470" configfile="/biblioteca/src/main/webapp/WEB-INF/faces-config.xml"/>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14894539101470" configfile="/biblioteca/src/main/webapp/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="security/login_form.xhtml" id="pf14898700096970" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" outlinks="pf14898700096971" inlinks="pf14898700180153" path="/security/login_form.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="restricted/pagina.xhtml" id="pf14898700096972" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf14898700096971" path="/restricted/pagina.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="*" id="pf14898700180154" referenceLink="//@navigationRule.2/@fromViewId|" outlinks="pf14898700180153" path="*"/>
+  <links id="pf14898700096971" target="pf14898700096972" source="pf14898700096970" outcome="testeRedirect" redirect="true" fromaction="#{acessoBean.doLogin}"/>
+  <links id="pf14898700180153" target="pf14898700096970" source="pf14898700180154" outcome="encerrarSessao" redirect="true" fromaction="#{acessoBean.doLogout()}"/>
+</pageflow:Pageflow>

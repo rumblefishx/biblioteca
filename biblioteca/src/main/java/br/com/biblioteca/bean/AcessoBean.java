@@ -46,6 +46,11 @@ public class AcessoBean implements Serializable{
 		this.senha = senha;
 	}
 	
+	public String doLogout(){
+		SessionContext.getInstance().encerrarSessao();
+		return "encerrarSessao";
+	}
+	
 	public String doLogin(){
 		
 		UsuarioDAO dao = new UsuarioDAO(em);
@@ -61,7 +66,7 @@ public class AcessoBean implements Serializable{
             }
   
             SessionContext.getInstance().setAttribute("usuarioLogado", user);
-            return "principal";
+            return "testeRedirect";
         } catch (Exception e) {
         	e.printStackTrace();
         	FacesMessage mensagem = new FacesMessage(FacesMessage.SEVERITY_ERROR,"Falha no procedimento de login",e.getMessage());

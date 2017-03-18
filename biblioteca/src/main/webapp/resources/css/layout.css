@@ -1,0 +1,46 @@
+		body{
+			background-image:url("#{resource['images:background.png']}");
+		}
+		
+		.cabecalho{
+			position:absolute;
+			left:50%;
+			margin-left:-500px;
+			width:1000px;
+			height:250px;
+			background-image:url("#{resource['images:logonovo.png']}");		
+		}
+		
+		.menu{
+			position:absolute;
+			left:50%;
+			margin-left:-500px;
+			margin-top:220px;
+			width:1000px;
+			height:48px;
+			background-color:grey;
+			border:1px solid;
+		}
+		
+		.conteudo{
+			position:absolute;
+			left:50%;
+			margin-left:-500px;
+			margin-top:270px;
+			width:980px;
+			height:990px;
+			background-color:grey;
+			padding:10px;
+			border:1px solid;
+		}
+		
+		.rodape{
+			position:absolute;
+			left:50%;
+			margin-left:-500px;
+			margin-top:1280px;
+			width:1000px;
+			height:120px;
+			background-color:black;
+			border:1px solid;
+		}

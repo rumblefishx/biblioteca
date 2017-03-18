@@ -4,5 +4,27 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
     version="2.2">
+    
+    <navigation-rule>
+    	<from-view-id>/security/login_form.xhtml</from-view-id>
+    	
+    	<navigation-case>
+    		<from-action>#{acessoBean.doLogin}</from-action>
+    		<from-outcome>testeRedirect</from-outcome>
+    		<to-view-id>/restricted/pagina.xhtml</to-view-id>
+    		<redirect/>
+    	</navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+    	<from-view-id>*</from-view-id>
+    	
+    	<navigation-case>
+    		<from-action>#{acessoBean.doLogout()}</from-action>
+    		<from-outcome>encerrarSessao</from-outcome>
+    		<to-view-id>/security/login_form.xhtml</to-view-id>
+    		<redirect/>
+    	</navigation-case>
+    </navigation-rule>
 
 </faces-config>
