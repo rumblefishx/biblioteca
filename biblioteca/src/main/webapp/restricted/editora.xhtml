@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<style>
+label {
+	display: block;
+	width: 120px;
+	text-align: right;
+}
+</style>
+</h:head>
+<ui:composition template="/resources/template/layout.xhtml">
+	<ui:define name="conteudocorpo">
+		<h:body>
+			<h:form prependId="false">
+				<p:growl id="msgs" showDetail="true" />
+
+				<p:fieldset id="basic" legend="Editora" style="margin-bottom:20px">
+					<h:panelGrid columns="2" cellpadding="10">
+						<p:outputLabel value="Nome:" for="txtEditora" />
+						<p:inputText id="txtEditora"
+							value="#{cadastroEditoraBean.editora.nome}" style="width:300px;margin-left:-20px"/>
+					</h:panelGrid>
+				</p:fieldset>
+
+				<ui:include src="/restricted/fragments/contato.xhtml" />
+				<br/>
+				<ui:include src="/restricted/fragments/endereco.xhtml" />
+
+				<h:panelGrid columns="2">
+					<p:commandButton value="Salvar"
+						action="#{cadastroEditoraBean.gravarCadastro()}" />
+					<p:commandButton value="Limpar" />
+				</h:panelGrid>
+			</h:form>
+		</h:body>
+	</ui:define>
+</ui:composition>
+</html>

@@ -9,6 +9,16 @@
 
 <ui:composition template="/resources/template/layout.xhtml">
 	<ui:define name="conteudocorpo">
+		<h:form enctype="multipart/form-data">
+		
+		    <p:growl autoUpdate="true"/>
+		    
+			<h:panelGrid columns="2">
+				<h:outputLabel value="Subir arquivo: " for="inputFile"/>
+				    <p:fileUpload value="#{uploadBean.file}" mode="simple" skinSimple="true" id="inputFile" ajax="false"/>
+    				<p:commandButton value="Enviar" ajax="false" actionListener="#{uploadBean.upload}" disabled="false" />
+			</h:panelGrid>
+		</h:form>
 	</ui:define>
 </ui:composition>
 </html>

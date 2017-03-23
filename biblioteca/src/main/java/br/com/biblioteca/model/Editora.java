@@ -1,5 +1,6 @@
 package br.com.biblioteca.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,10 +17,10 @@ public class Editora {
 	@Column(length=30)
 	private String nome;
 	
-	@OneToOne
+	@OneToOne(cascade={CascadeType.ALL})
 	private Endereco endereco;
 	
-	@OneToOne
+	@OneToOne(cascade={CascadeType.ALL})
 	private Contato contato;
 
 	public int getIdEditora() {

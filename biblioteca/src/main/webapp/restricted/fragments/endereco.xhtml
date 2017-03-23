@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<style>
+		input {
+			display: inline;
+			width: 150px;
+			margin-bottom: 10px;
+		}
+		
+		label {
+			display: block;
+			width: 120px;
+			text-align: right;
+		}
+	</style>
+</h:head>
+
+<f:view>
+	<p:fieldset legend="Endereco">
+
+		<h:panelGrid columns="2">
+			<h:panelGrid columns="2">
+				<p:outputLabel value="Logradouro: " id="lblLogradouro"
+					for="txtLogradouro" />
+				<p:inputText value="#{enderecoBean.endereco.logradouro}"
+					id="txtLogradouro" style="width:435px;" />
+			</h:panelGrid>
+
+			<h:panelGrid columns="2">
+				<p:outputLabel value="Numero: " id="lblNumero" for="txtNumero" />
+				<p:inputText value="#{enderecoBean.endereco.numero}" id="txtNumero" />
+			</h:panelGrid>
+
+			<h:panelGrid columns="4">
+				<p:outputLabel value="Bairro: " id="lblBairro" for="txtBairro" />
+				<p:inputText value="#{enderecoBean.endereco.bairro}" id="txtBairro" />
+
+				<p:outputLabel value="Complemento: " id="lblComplemento"
+					for="txtComplemento" />
+				<p:inputText value="#{enderecoBean.endereco.complemento}"
+					id="txtComplemento" />
+			</h:panelGrid>
+
+			<h:panelGrid columns="2">
+				<p:outputLabel value="Cep " id="lblCep" for="txtCep" />
+				<p:inputText value="#{enderecoBean.endereco.cep}" id="txtCep" />
+			</h:panelGrid>
+
+			<h:panelGrid columns="4">
+				<p:outputLabel value="Estado: " id="lblEstado" for="txtEstado" />
+				<p:selectOneMenu value="#{enderecoBean.endereco.estado}"
+					id="txtEstado">
+					<f:selectItem itemValue="SP" itemLabel="SP - SÃO PAULO" />
+				</p:selectOneMenu>
+
+
+				<p:outputLabel value="Cidade: " id="lblCidade" for="txtCidade" />
+				<p:selectOneMenu value="#{enderecoBean.endereco.cidade}"
+					id="txtCidade">
+					<f:selectItem itemValue="SP" itemLabel="SÃO PAULO" />
+				</p:selectOneMenu>
+			</h:panelGrid>
+
+
+		</h:panelGrid>
+	</p:fieldset>
+</f:view>
+</html>

@@ -6,65 +6,72 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
-	
-	<h:head>
-		<h:outputStylesheet library="css" name="layout.css"/>
-	</h:head>
 
-	<h:body>			
-		<div id="header" class="cabecalho">
-		</div>
-		
-		<div id="nav" class="menu">
-			<h:form>  
-			    <p:growl id="messages"/>
-			 
-			    <p:menubar>
-			        <p:submenu label="Livros" icon="ui-icon-folder-collapsed">
-			            <p:submenu label="New" icon="ui-icon-contact">
-			                <p:menuitem value="Project" url="#" />
-			                <p:menuitem value="Other" url="#" />
-			            </p:submenu>
-			            <p:menuitem value="Open" url="#" />
-			            <p:separator />
-			            <p:menuitem value="Quit" url="#" />
-			        </p:submenu>
-			 
-			        <p:submenu label="Clientes" icon="ui-icon-person">
-			            <p:menuitem value="Undo" url="#" icon="ui-icon-arrowreturnthick-1-w" />
-			            <p:menuitem value="Redo" url="#" icon="ui-icon-arrowreturnthick-1-e" />
-			        </p:submenu>
-			 
-			        <p:submenu label="Empréstimos" icon="ui-icon-calendar">
-			            <p:menuitem value="Contents" url="#" />
-			            <p:submenu label="Search" icon="ui-icon-search">
-			                <p:submenu label="Text">
-			                    <p:menuitem value="Workspace" url="#" />
-			                </p:submenu>
-			                <p:menuitem value="File" url="#" />
-			            </p:submenu>
-			        </p:submenu>
-			 
-			        <f:facet name="options">
-			            <p:inputText style="margin-right:10px" placeholder="Buscar..."/>
-			            <p:commandButton value="Logout" icon="ui-icon-extlink" action="#{acessoBean.doLogout()}">
-			            	<p:confirm header="Finalizar Sessão" message="Tem certeza de que deseja encerrar a sessão?" icon="ui-icon-alert"/>
-			            </p:commandButton>
-			        </f:facet>
-			    </p:menubar>
-			    
-				<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
-			        <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
-			        <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
-			    </p:confirmDialog>
-			</h:form>
-		</div>
-		
-		<div id="corpo" class="conteudo">
-			<ui:insert name="conteudocorpo"/>
-		</div>
-		
-		<div id="footer" class="rodape">
-		</div>
-	</h:body>
+<h:head>
+	<h:outputScript library="script" name="jquery.mask.js" />
+	<h:outputScript library="script" name="jquery.mask.min.js" />
+	<h:outputStylesheet library="css" name="layout.css" />
+</h:head>
+
+<h:body>
+	<div id="header" class="cabecalho"></div>
+
+	<div id="nav" class="menu">
+		<h:form>
+			<p:growl id="messages" />
+
+			<p:menubar>
+				<p:submenu label="Livros" icon="ui-icon-folder-collapsed">
+					<p:menuitem value="Cadastrar" url="#" />
+					<p:menuitem value="Consultar" url="#" />
+					<p:separator />
+					<p:submenu label="Editora" icon="">
+						<p:menuitem value="Cadastrar Editora"
+							url="/restricted/editora.xhtml" />
+					</p:submenu>
+				</p:submenu>
+
+				<p:submenu label="Clientes" icon="ui-icon-person">
+					<p:menuitem value="Undo" url="#"
+						icon="ui-icon-arrowreturnthick-1-w" />
+					<p:menuitem value="Redo" url="#"
+						icon="ui-icon-arrowreturnthick-1-e" />
+				</p:submenu>
+
+				<p:submenu label="Empréstimos" icon="ui-icon-calendar">
+					<p:menuitem value="Contents" url="#" />
+					<p:submenu label="Search" icon="ui-icon-search">
+						<p:submenu label="Text">
+							<p:menuitem value="Workspace" url="#" />
+						</p:submenu>
+						<p:menuitem value="File" url="#" />
+					</p:submenu>
+				</p:submenu>
+
+				<f:facet name="options">
+					<p:inputText style="margin-right:10px" placeholder="Buscar..." />
+					<p:commandButton value="Logout" icon="ui-icon-extlink"
+						action="#{acessoBean.doLogout()}">
+						<p:confirm header="Finalizar Sessão"
+							message="Tem certeza de que deseja encerrar a sessão?"
+							icon="ui-icon-alert" />
+					</p:commandButton>
+				</f:facet>
+			</p:menubar>
+
+			<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+				<p:commandButton value="Sim" type="button"
+					styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+				<p:commandButton value="Não" type="button"
+					styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+			</p:confirmDialog>
+		</h:form>
+	</div>
+
+	<div id="corpo" class="conteudo">
+		<ui:insert name="conteudocorpo" />
+	</div>
+
+	<div id="footer" class="rodape"></div>
+</h:body>
 </html>

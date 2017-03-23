@@ -1,4 +1,4 @@
-package br.com.biblioteca.bean;
+package br.com.biblioteca.config.bean;
 
 import java.io.Serializable;
 

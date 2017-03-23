@@ -14,8 +14,10 @@ public class Contato {
 	
 	@Column(length=100)
 	private String email;
-	private int telefoneFixo;
-	private int celular;
+	@Column(length=11)
+	private String telefoneFixo;
+	@Column(length=11)
+	private String celular;
 	
 	public int getIdContato() {
 		return idContato;
@@ -29,16 +31,16 @@ public class Contato {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public int getTelefoneFixo() {
+	public String getTelefoneFixo() {
 		return telefoneFixo;
 	}
-	public void setTelefoneFixo(int telefoneFixo) {
+	public void setTelefoneFixo(String telefoneFixo) {
 		this.telefoneFixo = telefoneFixo;
 	}
-	public int getCelular() {
+	public String getCelular() {
 		return celular;
 	}
-	public void setCelular(int celular) {
+	public void setCelular(String celular) {
 		this.celular = celular;
 	}
 	

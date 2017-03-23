@@ -28,10 +28,13 @@ public class Livro {
 	private Date dataLancamento;
 	private int numeroPaginas;
 	private long ISBN;
+	@Column(length=200)
+	private String pathFoto;	
 	@ManyToMany
 	private List<Categoria> categorias;
 	@ManyToOne
 	private Editora editora;
+	
 	
 	public int getIdLivro() {
 		return idLivro;
