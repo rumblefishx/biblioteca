@@ -9,24 +9,24 @@
 
 <h:head>
 	<style>
-label {
-	display: block;
-	width: 120px;
-	text-align: right;
-}
+		label {
+			display: block;
+			width: 120px;
+			text-align: right;
+		}
 </style>
 </h:head>
 <ui:composition template="/resources/template/layout.xhtml">
 	<ui:define name="conteudocorpo">
 		<h:body>
-			<h:form prependId="false">
-				<p:growl id="msgs" showDetail="true" />
-
+			<h:form prependId="false" id="formularioEditora">
+			    <p:messages id="messages" autoUpdate="true"/>
 				<p:fieldset id="basic" legend="Editora" style="margin-bottom:20px">
 					<h:panelGrid columns="2" cellpadding="10">
 						<p:outputLabel value="Nome:" for="txtEditora" />
 						<p:inputText id="txtEditora"
-							value="#{cadastroEditoraBean.editora.nome}" style="width:300px;margin-left:-20px"/>
+							value="#{cadastroEditoraBean.editora.nome}" style="width:300px;margin-left:-20px"
+							required="true" requiredMessage="É preciso preencher o nome da Editora!"/>
 					</h:panelGrid>
 				</p:fieldset>
 
@@ -36,8 +36,9 @@ label {
 
 				<h:panelGrid columns="2">
 					<p:commandButton value="Salvar"
-						action="#{cadastroEditoraBean.gravarCadastro()}" />
-					<p:commandButton value="Limpar" />
+						action="#{cadastroEditoraBean.gravarCadastro()}"
+						update="formularioEditora" />
+					<p:commandButton type="reset" value="Limpar" />
 				</h:panelGrid>
 			</h:form>
 		</h:body>

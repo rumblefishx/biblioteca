@@ -9,39 +9,43 @@
 
 <h:head>
 	<style>
-		input {
-			display: inline;
-			width: 150px;
-			margin-bottom: 10px;
-		}
-		
-		label {
-			display: block;
-			width: 120px;
-			text-align: right;
-		}
-	</style>
+input {
+	display: inline;
+	width: 150px;
+	margin-bottom: 10px;
+}
+
+label {
+	display: block;
+	width: 120px;
+	text-align: right;
+}
+</style>
 </h:head>
 
 <f:view>
 	<p:fieldset legend="Endereco">
-
 		<h:panelGrid columns="2">
 			<h:panelGrid columns="2">
 				<p:outputLabel value="Logradouro: " id="lblLogradouro"
 					for="txtLogradouro" />
 				<p:inputText value="#{enderecoBean.endereco.logradouro}"
-					id="txtLogradouro" style="width:435px;" />
+					id="txtLogradouro" style="width:435px;" required="true"
+					requiredMessage="É necessário preencher o campo Logradouro!" />
 			</h:panelGrid>
 
 			<h:panelGrid columns="2">
 				<p:outputLabel value="Numero: " id="lblNumero" for="txtNumero" />
-				<p:inputText value="#{enderecoBean.endereco.numero}" id="txtNumero" />
+				<p:inputText value="#{enderecoBean.endereco.numero}" id="txtNumero"
+					required="true"
+					requiredMessage="É necessário preencher o campo Número!" />
 			</h:panelGrid>
 
 			<h:panelGrid columns="4">
 				<p:outputLabel value="Bairro: " id="lblBairro" for="txtBairro" />
-				<p:inputText value="#{enderecoBean.endereco.bairro}" id="txtBairro" />
+				<p:inputText value="#{enderecoBean.endereco.bairro}" id="txtBairro"
+					required="true"
+					requiredMessage="É necessário preencher o campo Bairro!" />
 
 				<p:outputLabel value="Complemento: " id="lblComplemento"
 					for="txtComplemento" />
@@ -51,25 +55,30 @@
 
 			<h:panelGrid columns="2">
 				<p:outputLabel value="Cep " id="lblCep" for="txtCep" />
-				<p:inputText value="#{enderecoBean.endereco.cep}" id="txtCep" />
+				<p:inputText value="#{enderecoBean.endereco.cep}" id="txtCep"
+					required="true"
+					requiredMessage="É necessário preencher o campo Cep!" />
 			</h:panelGrid>
 
 			<h:panelGrid columns="4">
-				<p:outputLabel value="Estado: " id="lblEstado" for="txtEstado" />
-				<p:selectOneMenu value="#{enderecoBean.endereco.estado}"
-					id="txtEstado">
-					<f:selectItem itemValue="SP" itemLabel="SP - SÃO PAULO" />
+				<p:outputLabel value="Estado: " id="lblEstado" for="estado" />
+				<p:selectOneMenu id="estado" value="#{enderecoBean.estadoEscolhido}"
+					converter="estadoConverter" required="true">
+					<f:selectItem itemLabel="Selecione" />
+					<f:selectItems value="#{enderecoBean.listaEstados}" var="e"
+						itemValue="#{e}" itemLabel="#{e.sigla}" />
+					<f:ajax render="cidade" event="change"
+						listener="#{enderecoBean.alterarCidadesPorEstado}" />
 				</p:selectOneMenu>
 
-
-				<p:outputLabel value="Cidade: " id="lblCidade" for="txtCidade" />
-				<p:selectOneMenu value="#{enderecoBean.endereco.cidade}"
-					id="txtCidade">
-					<f:selectItem itemValue="SP" itemLabel="SÃO PAULO" />
+				<p:outputLabel value="Cidade: " for="cidade" id="lblCidade" />
+				<p:selectOneMenu id="cidade" value="#{enderecoBean.cidadeEscolhida}"
+					converter="cidadeConverter" required="true">
+					<f:selectItem itemLabel="Selecione" />
+					<f:selectItems value="#{enderecoBean.listaCidades}" var="c"
+						itemValue="#{c}" itemLabel="#{c.nomeCidade}" />
 				</p:selectOneMenu>
 			</h:panelGrid>
-
-
 		</h:panelGrid>
 	</p:fieldset>
 </f:view>

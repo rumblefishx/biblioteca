@@ -17,9 +17,7 @@ public class AcessoBean implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 
-	public AcessoBean(){
-		em = JPAUtil.getEntityManager();
-	}
+	public AcessoBean(){}
 	
 	private EntityManager em;
 
@@ -53,7 +51,7 @@ public class AcessoBean implements Serializable{
 	
 	public String doLogin(){
 		
-		UsuarioDAO dao = new UsuarioDAO(em);
+		UsuarioDAO dao = new UsuarioDAO();
 		
 		try {
             Usuario user = dao.buscar(this.login);

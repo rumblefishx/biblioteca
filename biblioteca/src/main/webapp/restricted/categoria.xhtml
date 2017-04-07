@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/resources/template/layout.xhtml">
+	<ui:define name="conteudocorpo">
+		<h:form prependId="false">
+
+			<p:messages severity="warn,error,fatal" autoUpdate="true"
+				showDetail="true" />
+			<p:growl severity="info" autoUpdate="true" />
+
+			<p:fieldset legend="Categoria">
+				<h:panelGrid columns="2">
+					<p:outputLabel value="Nome: " for="nome" style="display:block;width:110px;text-align:right;"/>
+					<p:inputText id="nome" value="#{categoriaBean.categoria.nome}"
+						required="true"
+						requiredMessage="É preciso preencher o campo Nome!" />
+
+					<p:outputLabel value="Descricao: " for="descricao" style="display:block;width:110px;text-align:right;"/>
+					<p:inputTextarea id="descricao"
+						value="#{categoriaBean.categoria.descricao}"
+						style="display:block;width:800px;height:800px;margin-top:5px;" required="true"
+						requiredMessage="É preciso preencher a descricao!" />
+
+
+					<h:outputText value="" />
+					<h:panelGrid columns="2">
+						<p:commandButton action="#{categoriaBean.gravarCategoria}"
+							value="Cadastrar" />
+						<p:commandButton type="reset" value="Limpar" />
+					</h:panelGrid>
+				</h:panelGrid>
+			</p:fieldset>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

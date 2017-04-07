@@ -4,21 +4,22 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
+import br.com.biblioteca.config.JPAUtil;
 import br.com.biblioteca.model.Categoria;
 
 public class CategoriaDAO implements DAOInterface<Categoria> {
 
 	private EntityManager em;
 	
-	public CategoriaDAO(EntityManager em){
-		this.em = em;
+	public CategoriaDAO(){
+		em = JPAUtil.getEntityManager();
 	}
 	
 	@Override
 	public void inserir(Categoria valor) {
 		em.persist(valor);
 	}
-
+	
 	@Override
 	public void remover(Categoria valor) {
 		// TODO Auto-generated method stub

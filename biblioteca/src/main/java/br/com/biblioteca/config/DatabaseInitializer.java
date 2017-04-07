@@ -26,7 +26,7 @@ public class DatabaseInitializer {
 	
 	public static void categoriaInitializer(){
 		em.getTransaction().begin();
-		CategoriaDAO categoriaDao = new CategoriaDAO(em);
+		CategoriaDAO categoriaDao = new CategoriaDAO();
 		Categoria categoria = new Categoria();
 		categoria.setNome("Ficcao");
 		categoria.setDescricao("Livros de universos ficticios");
@@ -37,7 +37,7 @@ public class DatabaseInitializer {
 	
 	public static void editoraInitializer(){	
 		em.getTransaction().begin();
-		EditoraDAO editoraDao = new EditoraDAO(em);
+		EditoraDAO editoraDao = new EditoraDAO();
 		
 		Endereco endereco = new Endereco();
 		endereco.setBairro("Jardim Angélica");
@@ -67,7 +67,7 @@ public class DatabaseInitializer {
 	
 	public static void livroInitializer(){
 		em.getTransaction().begin();
-		LivroDAO livroDao = new LivroDAO(em);
+		LivroDAO livroDao = new LivroDAO();
 		Livro livro = new Livro();
 		
 		livro.setDataLancamento(new Date());

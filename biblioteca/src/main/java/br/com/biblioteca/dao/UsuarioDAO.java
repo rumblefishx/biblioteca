@@ -5,15 +5,12 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
+import br.com.biblioteca.config.JPAUtil;
 import br.com.biblioteca.model.Usuario;
 
 public class UsuarioDAO implements DAOInterface<Usuario> {
 	
-	private EntityManager entityManager;
-	
-	public UsuarioDAO(EntityManager entityManager){
-		this.entityManager = entityManager;
-	}
+	public UsuarioDAO(){}
 
 	@Override
 	public void inserir(Usuario valor) {
@@ -39,9 +36,11 @@ public class UsuarioDAO implements DAOInterface<Usuario> {
 	}
 	
 	public Usuario buscar(String nome){
-		TypedQuery<Usuario> query = entityManager.createQuery("select u from Usuario u where u.nomeUsuario = :nome",Usuario.class);
+		EntityManager em = JPAUtil.getEntityManager();
+		TypedQuery<Usuario> query = em.createQuery("select u from Usuario u where u.nomeUsuario = :nome",Usuario.class);
 		query.setParameter("nome", nome);
-		return query.getSingleResult();
+		Usuario usuario = query.getSingleResult();
+		return usuario;
 	}
 	
 

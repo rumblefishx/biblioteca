@@ -4,19 +4,20 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
+import br.com.biblioteca.config.JPAUtil;
 import br.com.biblioteca.model.Editora;
 
 public class EditoraDAO implements DAOInterface<Editora>{
 	
-	private EntityManager em;
-	
-	public EditoraDAO(EntityManager em){
-		this.em = em;
-	}
+	public EditoraDAO(){}
 	
 	@Override
 	public void inserir(Editora valor) {
+		EntityManager em = JPAUtil.getEntityManager();
+		em.getTransaction().begin();
 		em.persist(valor);
+		em.getTransaction().commit();
+		em.close();
 	}
 
 	@Override

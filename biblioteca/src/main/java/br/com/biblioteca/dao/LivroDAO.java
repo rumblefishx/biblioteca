@@ -5,19 +5,21 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
+import br.com.biblioteca.config.JPAUtil;
 import br.com.biblioteca.model.Livro;
 
 public class LivroDAO implements DAOInterface<Livro> {
 
-	private EntityManager em;
 	
-	public LivroDAO(EntityManager em){
-		this.em = em;
-	}
+	public LivroDAO(){}
 	
 	@Override
 	public void inserir(Livro valor) {
-		em.persist(valor);	
+		EntityManager em = JPAUtil.getEntityManager();
+		em.getTransaction().begin();
+		em.persist(valor);
+		em.getTransaction().commit();
+		em.close();
 	}
 
 	@Override
@@ -28,8 +30,11 @@ public class LivroDAO implements DAOInterface<Livro> {
 
 	@Override
 	public List<Livro> listar() {
+		EntityManager em = JPAUtil.getEntityManager();
 		TypedQuery<Livro> livroQuery = em.createQuery("select l from Livro l", Livro.class);
-		return livroQuery.getResultList();
+		List<Livro> livros = livroQuery.getResultList();
+		em.close();
+		return livros;
 	}
 
 	@Override

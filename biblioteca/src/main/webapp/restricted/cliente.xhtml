@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+      
+    <h:head>
+    	<style>
+    		.labelForm{
+    			display:block;
+    			width:130px;
+    			text-align:right;
+    		}
+    	</style>
+    </h:head>
+
+	<ui:composition template="/resources/template/layout.xhtml">
+		<ui:define name="conteudocorpo">
+			<h:form prependId="false">
+				<p:fieldset legend="Dados Pessoais">
+					<h:panelGrid columns="2">
+						<p:outputLabel value="Nome: " for="txtNome" id="lblNome" styleClass="labelForm" style="width:300px;"/>
+						<p:inputText value="Claudeci Dias Nunes Ribeiro Vasconscelos" id="txtNome"/>				
+					</h:panelGrid>
+					
+					<h:panelGrid columns="4">
+						<p:outputLabel value="RG: " for="txtRG" id="lblRG" styleClass="labelForm"/>
+						<p:inputText value="48.041.124-4" id="txtRG" style="width:200px;"/>			
+						
+						<p:outputLabel value="CPF: " for="txtCPF" id="lblCPF" styleClass="labelForm"/>
+						<p:inputText value="407.862.338-77" id="txtCPF"/>			
+					</h:panelGrid> 
+					
+					<h:panelGrid columns="4">
+						<p:outputLabel value="Data Nasc: " for="txtDataNasc" id="lblDataNasc" styleClass="labelForm"/>
+						<p:inputText value="29/07/1991" id="txtDataNasc"/>
+						
+						<p:outputLabel value="Sexo: " for="cmbSexo" id="lblSexo" styleClass="labelForm"/>
+						<p:selectOneMenu id="cmbSexo">
+							<f:selectItem itemLabel="Masculino" itemValue="M"/>
+							<f:selectItem itemLabel="Feminino" itemValue="F"/>
+						</p:selectOneMenu>					
+					</h:panelGrid> 
+				</p:fieldset>
+				
+				<ui:include src="/restricted/fragments/contato.xhtml" />
+				<ui:include src="/restricted/fragments/endereco.xhtml" />
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</html>

@@ -17,16 +17,16 @@ public class Cliente {
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idCliente;
 	
-	@Column(length=20)
+	@Column(length=90)
 	private String nome;
-	@Column(length=70)
-	private String sobrenome;
 	@Temporal(TemporalType.DATE)
 	private Date dataNascimento;
 	@Column(length=1)
 	private String sexo;
 	@Column(length=9)
 	private String rg;
+	@Column(length=11)
+	private String cpf;
 	
 	@OneToOne
 	private Endereco endereco;
@@ -44,12 +44,6 @@ public class Cliente {
 	}
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-	public String getSobrenome() {
-		return sobrenome;
-	}
-	public void setSobrenome(String sobrenome) {
-		this.sobrenome = sobrenome;
 	}
 	public Date getDataNascimento() {
 		return dataNascimento;
@@ -69,6 +63,12 @@ public class Cliente {
 	public void setRg(String rg) {
 		this.rg = rg;
 	}
+	public String getCpf() {
+		return cpf;
+	}
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
 	public Endereco getEndereco() {
 		return endereco;
 	}
@@ -81,6 +81,4 @@ public class Cliente {
 	public void setContato(Contato contato) {
 		this.contato = contato;
 	}
-	
-	
 }
