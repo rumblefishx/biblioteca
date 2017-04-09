@@ -25,6 +25,7 @@
 		</plugins>
 	</build>
 	<dependencies>
+	    <!-- IMPLEMENTACAO DO JSF -->
 		<dependency>
 			<groupId>com.sun.faces</groupId>
 			<artifactId>jsf-impl</artifactId>
@@ -46,6 +47,7 @@
 			<version>5.3</version>
 		</dependency>
 
+		<!-- IMPLEMENTACAO DO JPA -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
@@ -73,6 +75,14 @@
 			<groupId>commons-logging</groupId>
 			<artifactId>commons-logging</artifactId>
 			<version>1.2</version>
+		</dependency>
+
+		<!-- IMPLEMENTACAO DO CDI -->
+		<dependency>
+			<groupId>org.jboss.weld</groupId>
+			<artifactId>weld-core</artifactId>
+			<version>2.4.1.Final</version>
+			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 </project>

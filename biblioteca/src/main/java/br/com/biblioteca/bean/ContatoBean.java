@@ -1,12 +1,17 @@
 package br.com.biblioteca.bean;
 
-import javax.faces.bean.ManagedBean;
+import java.io.Serializable;
+
+import javax.faces.view.ViewScoped;
+import javax.inject.Named;
 
 import br.com.biblioteca.model.Contato;
 
-@ManagedBean
-public class ContatoBean {
+@Named
+@ViewScoped
+public class ContatoBean implements Serializable {
 
+	private static final long serialVersionUID = 1L;
 	private Contato contato;
 	
 	public ContatoBean(){

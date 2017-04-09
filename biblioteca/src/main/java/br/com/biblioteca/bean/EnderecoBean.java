@@ -1,22 +1,25 @@
 package br.com.biblioteca.bean;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.AjaxBehaviorEvent;
+import javax.faces.view.ViewScoped;
+import javax.inject.Named;
+
 import br.com.biblioteca.dao.CidadeDAO;
 import br.com.biblioteca.dao.EstadoDAO;
 import br.com.biblioteca.model.Cidade;
 import br.com.biblioteca.model.Endereco;
 import br.com.biblioteca.model.Estado;
 
-@ManagedBean
+@Named
 @ViewScoped
-public class EnderecoBean {
+public class EnderecoBean implements Serializable{
 	
+	private static final long serialVersionUID = 1L;
 	private Endereco endereco;
 	private Estado estadoEscolhido;
 	private Cidade cidadeEscolhida;
